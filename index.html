@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <meta name="google-adsense-account" content="ca-pub-4742783841203548">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sachin Editor</title>
+    <style>
+        body { text-align: center; font-family: sans-serif; background: #eee; }
+        #canvas { max-width: 90%; margin-top: 10px; border: 2px solid #000; }
+        .box { background: white; padding: 20px; margin: 10px; border-radius: 10px; }
+        button { padding: 10px; margin: 5px; background: red; color: white; border: none; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h3>फोटो चुनें और साफ़ करें</h3>
+    <input type="file" id="upload" accept="image/*">
+    <br>
+    <canvas id="canvas"></canvas>
+    <br>
+    <button onclick="edit('brightness(1.2)')">हल्का साफ़</button>
+    <button onclick="edit('brightness(1.5)')">ज़्यादा साफ़</button>
+    <button onclick="edit('none')">पहले जैसा</button>
+</div>
+
+<script>
+    const upload = document.getElementById('upload');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    let imgObj = new Image();
+
+    upload.onchange = (e) => {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            imgObj.onload = () => {
+                canvas.width = imgObj.width;
+                canvas.height = imgObj.height;
+                ctx.drawImage(imgObj, 0, 0);
+            };
+            imgObj.src = event.target.result;
+        };
+        reader.readAsDataURL(e.target.files[0]);
+    };
+
+    function edit(filterValue) {
+        ctx.filter = filterValue;
+        ctx.drawImage(imgObj, 0, 0);
+    }
+</script>
+<footer style="margin-top: 30px; padding: 20px; border-top: 1px solid #333;">
+    <a href="#" style="color: #888; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+    <a href="mailto:your-email@gmail.com" style="color: #888; text-decoration: none; margin: 0 10px;">Contact Us</a>
+    <p style="font-size: 12px; color: #555; margin-top: 10px;">© 2026 Sachin AI Tools</p>
+</footer>
+
+
+</body>
+</html>
