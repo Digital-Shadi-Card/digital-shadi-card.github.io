@@ -6,53 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sachin Photo Editor - फ्री ऑनलाइन फोटो साफ़ करने वाला टूल</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background-color: #f4f7f6; margin: 0; padding: 20px; color: #333; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; }
-        #canvas { max-width: 100%; height: auto; border-radius: 10px; margin-top: 20px; border: 3px solid #ddd; }
-        .box { margin-top: 25px; padding: 20px; border: 2px dashed #3498db; border-radius: 10px; }
-        button { padding: 12px 25px; margin: 10px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: 0.3s; }
-        button:hover { background-color: #2980b9; }
-        .content-section { text-align: left; margin-top: 40px; line-height: 1.6; border-top: 1px solid #eee; padding-top: 20px; }
-        .footer-links { margin-top: 30px; font-size: 14px; }
-        .footer-links a { color: #3498db; text-decoration: none; margin: 0 10px; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; text-align: center; background-color: #f0f2f5; margin: 0; padding: 20px; line-height: 1.6; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .editor-box { border: 2px solid #007bff; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
+        #canvas { max-width: 100%; height: auto; border: 1px solid #ccc; margin-top: 15px; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; border: none; border-radius: 5px; background: #007bff; color: white; font-weight: bold; }
+        .text-content { text-align: left; margin-top: 40px; padding: 20px; background: #fafafa; border-radius: 8px; }
+        h1, h2, h3 { color: #333; }
+        .footer { margin-top: 40px; border-top: 1px solid #ddd; padding-top: 20px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Sachin Photo Editor</h1>
-    <p>अपनी धुंधली फोटो को एक क्लिक में साफ़ और चमकदार बनाएं।</p>
+    <h1>Sachin Photo Editor: ऑनलाइन फोटो साफ़ करें</h1>
+    <p>अपनी धुंधली और पुरानी फोटो को एक क्लिक में HD क्वालिटी में बदलें।</p>
 
-    <div class="box">
-        <h3>फोटो चुनें और साफ़ करें</h3>
+    <div class="editor-box">
+        <h3>यहाँ अपनी फोटो अपलोड करें</h3>
         <input type="file" id="upload" accept="image/*">
         <br>
         <canvas id="canvas"></canvas>
         <br>
         <button onclick="edit('brightness(1.2)')">हल्का साफ़</button>
-        <button onclick="edit('brightness(1.5)')">ज़्यादा साफ़</button>
-        <button onclick="edit('none')">पहले जैसा</button>
+        <button onclick="edit('brightness(1.6)')">ज़्यादा साफ़</button>
+        <button onclick="edit('none')">Reset</button>
     </div>
 
-    <div class="content-section">
-        <h2>ऑनलाइन फोटो एडिटर का उपयोग कैसे करें?</h2>
-        <p>Sachin Photo Editor एक शक्तिशाली और मुफ्त ऑनलाइन टूल है। अगर आपकी फोटो अंधेरे में खींची गई है या धुंधली है, तो आप ऊपर दिए गए बटनों का उपयोग करके उसे तुरंत ठीक कर सकते हैं। यह टूल आपकी प्राइवेसी का पूरा ध्यान रखता है और आपकी फोटो कहीं भी सेव नहीं की जाती।</p>
+    <div class="text-content">
+        <h2>Sachin Photo Editor टूल का उपयोग क्यों करें?</h2>
+        <p>आजकल मोबाइल से फोटो खींचना बहुत आसान है, लेकिन कई बार रोशनी कम होने की वजह से फोटो काली या धुंधली हो जाती है। **Sachin Photo Editor** एक मुफ्त ऑनलाइन टूल है जो आपकी ऐसी फोटो को तुरंत साफ़ और चमकदार बना देता है।</p>
         
-        <h3>मुख्य विशेषताएं:</h3>
-        <ul>
-            <li>बिना किसी शुल्क के असीमित फोटो एडिटिंग।</li>
-            <li>तेज़ और सुरक्षित प्रोसेसिंग।</li>
-            <li>किसी भी मोबाइल या कंप्यूटर पर आसानी से काम करता है।</li>
-        </ul>
+        <h3>यह टूल कैसे काम करता है?</h3>
+        <p>यह टूल एडवांस्ड AI ब्राइटनेस और फ़िल्टर तकनीक का उपयोग करता है। आपको बस अपनी फोटो चुननी है और 'साफ़ करें' बटन पर क्लिक करना है। आपकी फोटो तुरंत साफ़ हो जाएगी जिसे आप सेव कर सकते हैं।</p>
+        
+        <h3>सुरक्षा और प्राइवेसी</h3>
+        <p>हम आपकी निजता का सम्मान करते हैं। आपकी अपलोड की गई फोटो हमारे सर्वर पर सेव नहीं होती है। जैसे ही आप ब्राउज़र बंद करते हैं, फोटो हट जाती है। यह पूरी तरह से सुरक्षित है।</p>
     </div>
 
-    <div class="footer-links">
-        <a href="#">About Us</a> | 
-        <a href="#">Privacy Policy</a> | 
-        <a href="#">Contact Us</a>
+    <div class="footer">
+        <p><a href="#">Privacy Policy</a> | <a href="#">About Us</a> | <a href="#">Contact Us</a></p>
+        <p>&copy; 2026 Sachin Photo Editor. All Rights Reserved.</p>
     </div>
-    <p style="font-size: 12px; color: #777; margin-top: 20px;">&copy; 2026 Sachin Photo Editor. All Rights Reserved.</p>
 </div>
 
 <script>
