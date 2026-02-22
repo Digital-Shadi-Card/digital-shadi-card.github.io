@@ -1,28 +1,58 @@
 <!DOCTYPE html>
-<html>
-  
+<html lang="hi">
 <head>
-  <meta name="google-adsense-account" content="ca-pub-4742783841203548">
+    <meta charset="UTF-8">
+    <meta name="google-adsense-account" content="ca-pub-4742783841203548">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sachin Editor</title>
+    <title>Sachin Photo Editor - फ्री ऑनलाइन फोटो साफ़ करने वाला टूल</title>
     <style>
-        body { text-align: center; font-family: sans-serif; background: #eee; }
-        #canvas { max-width: 90%; margin-top: 10px; border: 2px solid #000; }
-        .box { background: white; padding: 20px; margin: 10px; border-radius: 10px; }
-        button { padding: 10px; margin: 5px; background: red; color: white; border: none; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background-color: #f4f7f6; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; }
+        #canvas { max-width: 100%; height: auto; border-radius: 10px; margin-top: 20px; border: 3px solid #ddd; }
+        .box { margin-top: 25px; padding: 20px; border: 2px dashed #3498db; border-radius: 10px; }
+        button { padding: 12px 25px; margin: 10px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: 0.3s; }
+        button:hover { background-color: #2980b9; }
+        .content-section { text-align: left; margin-top: 40px; line-height: 1.6; border-top: 1px solid #eee; padding-top: 20px; }
+        .footer-links { margin-top: 30px; font-size: 14px; }
+        .footer-links a { color: #3498db; text-decoration: none; margin: 0 10px; }
     </style>
 </head>
 <body>
 
-<div class="box">
-    <h3>फोटो चुनें और साफ़ करें</h3>
-    <input type="file" id="upload" accept="image/*">
-    <br>
-    <canvas id="canvas"></canvas>
-    <br>
-    <button onclick="edit('brightness(1.2)')">हल्का साफ़</button>
-    <button onclick="edit('brightness(1.5)')">ज़्यादा साफ़</button>
-    <button onclick="edit('none')">पहले जैसा</button>
+<div class="container">
+    <h1>Sachin Photo Editor</h1>
+    <p>अपनी धुंधली फोटो को एक क्लिक में साफ़ और चमकदार बनाएं।</p>
+
+    <div class="box">
+        <h3>फोटो चुनें और साफ़ करें</h3>
+        <input type="file" id="upload" accept="image/*">
+        <br>
+        <canvas id="canvas"></canvas>
+        <br>
+        <button onclick="edit('brightness(1.2)')">हल्का साफ़</button>
+        <button onclick="edit('brightness(1.5)')">ज़्यादा साफ़</button>
+        <button onclick="edit('none')">पहले जैसा</button>
+    </div>
+
+    <div class="content-section">
+        <h2>ऑनलाइन फोटो एडिटर का उपयोग कैसे करें?</h2>
+        <p>Sachin Photo Editor एक शक्तिशाली और मुफ्त ऑनलाइन टूल है। अगर आपकी फोटो अंधेरे में खींची गई है या धुंधली है, तो आप ऊपर दिए गए बटनों का उपयोग करके उसे तुरंत ठीक कर सकते हैं। यह टूल आपकी प्राइवेसी का पूरा ध्यान रखता है और आपकी फोटो कहीं भी सेव नहीं की जाती।</p>
+        
+        <h3>मुख्य विशेषताएं:</h3>
+        <ul>
+            <li>बिना किसी शुल्क के असीमित फोटो एडिटिंग।</li>
+            <li>तेज़ और सुरक्षित प्रोसेसिंग।</li>
+            <li>किसी भी मोबाइल या कंप्यूटर पर आसानी से काम करता है।</li>
+        </ul>
+    </div>
+
+    <div class="footer-links">
+        <a href="#">About Us</a> | 
+        <a href="#">Privacy Policy</a> | 
+        <a href="#">Contact Us</a>
+    </div>
+    <p style="font-size: 12px; color: #777; margin-top: 20px;">&copy; 2026 Sachin Photo Editor. All Rights Reserved.</p>
 </div>
 
 <script>
@@ -32,29 +62,24 @@
     let imgObj = new Image();
 
     upload.onchange = (e) => {
+        const file = e.target.files[0];
         const reader = new FileReader();
         reader.onload = (event) => {
             imgObj.onload = () => {
                 canvas.width = imgObj.width;
                 canvas.height = imgObj.height;
                 ctx.drawImage(imgObj, 0, 0);
-            };
+            }
             imgObj.src = event.target.result;
-        };
-        reader.readAsDataURL(e.target.files[0]);
+        }
+        reader.readAsDataURL(file);
     };
 
-    function edit(filterValue) {
-        ctx.filter = filterValue;
+    function edit(effect) {
+        ctx.filter = effect;
         ctx.drawImage(imgObj, 0, 0);
     }
 </script>
-<footer style="margin-top: 30px; padding: 20px; border-top: 1px solid #333;">
-    <a href="#" style="color: #888; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
-    <a href="mailto:your-email@gmail.com" style="color: #888; text-decoration: none; margin: 0 10px;">Contact Us</a>
-    <p style="font-size: 12px; color: #555; margin-top: 10px;">© 2026 Sachin AI Tools</p>
-</footer>
-
 
 </body>
 </html>
