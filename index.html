@@ -74,7 +74,13 @@
         ctx.filter = effect;
         ctx.drawImage(imgObj, 0, 0);
     }
-</script>
-
+    const downloadBtn = document.getElementById('download');
+    downloadBtn.addEventListener('click', function() {
+        const link = document.createElement('a');
+        link.download = 'sachin-photo.png';
+        link.href = canvas.toDataURL();
+        link.click();  
+    });
+    </script>
 </body>
 </html>
